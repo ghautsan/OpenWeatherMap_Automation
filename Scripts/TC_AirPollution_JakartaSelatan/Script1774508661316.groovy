@@ -17,9 +17,9 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import groovy.json.JsonSlurper as JsonSlurper
-
 import groovy.json.JsonSlurper
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.util.KeywordUtil
 
 def response = WS.sendRequest(findTestObject('AirPollution_JakartaSelatan'))
 
@@ -35,3 +35,9 @@ assert json.coord instanceof Map
 assert json.list instanceof List
 assert json.list[0].main instanceof Map
 assert json.list[0].components instanceof Map
+assert json.list[0].main.aqi != null
+assert json.list[0].components.co != null
+
+KeywordUtil.logInfo("Air Pollution AQI: " + json.list[0].main.aqi)
+KeywordUtil.logInfo("CO concentration: " + json.list[0].components.co)
+KeywordUtil.logInfo(response.getResponseBodyContent())

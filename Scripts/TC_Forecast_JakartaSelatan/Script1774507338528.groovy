@@ -17,6 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import groovy.json.JsonSlurper as JsonSlurper
+import com.kms.katalon.core.util.KeywordUtil
+
 
 def response = WS.sendRequest(findTestObject('Forecast_JakartaSelatan'))
 WS.verifyResponseStatusCode(response, 200)
@@ -28,5 +30,12 @@ assert json.city.coord.lon == 106.8
 assert json.list.size() > 0
 assert json.list[0].main.temp instanceof Number
 assert json.city instanceof Map
+assert json.city.coord instanceof Map
 assert json.list instanceof List
 assert json.list[0].main instanceof Map
+assert json.city.name != null
+assert json.list[0].weather[0].description != null
+
+KeywordUtil.logInfo("Forecast city: " + json.city.name)
+KeywordUtil.logInfo("First forecast temp: " + json.list[0].main.temp)
+KeywordUtil.logInfo(response.getResponseBodyContent())
