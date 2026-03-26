@@ -60,16 +60,16 @@ KeywordUtil.logInfo(response.getResponseBodyContent())
 
 Project Structure
 OpenWeatherMap_Automation/
-├── Object Repository/       # API request objects
-│   ├── Forecast_JakartaSelatan
-│   └── AirPollution_JakartaSelatan
-├── Test Cases/              # Test case scripts
-│   ├── TC_Forecast_JakartaSelatan
-│   └── TC_AirPollution_JakartaSelatan
-├── Test Suites/             # Test suite bundling test cases
-│   └── WeatherSuite
-├── Reports/                 # Test execution reports
-└── README.md                # Project documentation
+- Object Repository/       # API request objects
+   - Forecast_JakartaSelatan
+   - AirPollution_JakartaSelatan
+- Test Cases/              # Test case scripts
+   - TC_Forecast_JakartaSelatan
+   - TC_AirPollution_JakartaSelatan
+- Test Suites/             # Test suite bundling test cases
+   - WeatherSuite
+- Reports/                 # Test execution reports
+- README.md                # Project documentation
 
 Notes
 - Use coordinates (lat/lon) for South Jakarta to avoid "city not found" errors.
